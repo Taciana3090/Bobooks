@@ -21,3 +21,11 @@ orig_cols = list(df.columns)
 new_cols = [] 
 for col in orig_cols:     
     new_cols.append(col.strip().replace('  ', ' ').replace(' ', '_').lower())
+df.columns = new_cols
+
+# Utilizando Markdown
+st.markdown('---')
+st.markdown('# Sobre a Base de Dados')
+st.markdown('''Análise de dados exploratórios diferentes, agrupamento de livros por tópicos/categorias, 
+mecanismo de recomendação baseado em conteúdo usando campos diferentes da descrição do livro.''')
+st.markdown('---')
