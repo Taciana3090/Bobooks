@@ -29,3 +29,13 @@ st.markdown('# Sobre a Base de Dados')
 st.markdown('''Análise de dados exploratórios diferentes, agrupamento de livros por tópicos/categorias, 
 mecanismo de recomendação baseado em conteúdo usando campos diferentes da descrição do livro.''')
 st.markdown('---')
+
+# top 10 dos livros
+st.markdown('### Classificação média: 10 melhores livros')
+top_ten = df[df['rating'] > 1000000]
+top_ten.sort_values(by='rating', ascending=False)
+fig = plt.style.use('seaborn-whitegrid')
+data = top_ten.sort_values(by='rating', ascending=False).head(10)
+_=sns.barplot(x="average_rating", y='title', data=data, palette='pastel')
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.pyplot(fig)
