@@ -13,7 +13,7 @@ from PIL import Image
 st.title('Gráficos e opções de filtragem por G4')
 
 # importando conjunto de dados
-df = pd.read_csv('https://github.com/Taciana3090/Bbooks/raw/master/data/dados.csv', delimiter=',') # --> caminho para o arquivo com os dados  
+df = pd.read_csv('data/dataset.csv', delimiter=',') # --> caminho para o arquivo com os dados  
 
 
 # Padronização dos nomes
@@ -34,7 +34,6 @@ mecanismo de recomendação baseado em conteúdo usando campos diferentes da des
 st.markdown('---')
 
 # Visualizando os dados
-st.markdown('---')
 st.title('Tabelas de Dataframe')
 st.markdown('### Base de dados: Skoob ')
 st.dataframe(df)
@@ -52,27 +51,6 @@ fig = px.bar(x = [0,4,759,759,0,0,2,1,0,0,0,0,0,0,0,0,657,589,0,0],
             orientation='h', title=" Valores faltantes ",
              labels={'x':'Quantidade','y':'Dados'})
 st.plotly_chart(fig, use_container_width=False, sharing='streamlit')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Referencias e adicionando sidebar
 st.sidebar.markdown('Feito por : grupo G4')
