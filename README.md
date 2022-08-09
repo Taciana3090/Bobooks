@@ -5,14 +5,11 @@
     <code>python -m pip install --upgrade pip</code>
   </li>
   
-   <li>Entre no terminal e execute:
-    <code>pip install --user pipenv</code>
-  </li>
 
   <li>Baixe este projeto e descompacte o conteúdo em uma pasta <code>Bobooks</code>. Entre na pasta.</li>
 
   <li>Execute:
-    <code>pipenv shell</code>
+    <code>pip install -r requirements.txt --upgrade</code>
   </li>
 
   <li>Execute:
