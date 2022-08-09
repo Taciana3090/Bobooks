@@ -10,7 +10,7 @@ from PIL import Image
 
 
 # Adicionando um titulo
-st.title('Gráficos e opções de filtragem')
+st.title('Gráficos e opções de filtragem por G4')
 
 # importando conjunto de dados
 df = pd.read_csv('https://github.com/Taciana3090/Bbooks/raw/master/data/dados.csv', delimiter=',') # --> caminho para o arquivo com os dados  
@@ -23,6 +23,9 @@ for col in orig_cols:
     new_cols.append(col.strip().replace('  ', ' ').replace(' ', '_').lower())
 df.columns = new_cols
 
+
+
+
 # Utilizando Markdown
 st.markdown('---')
 st.markdown('# Sobre a Base de Dados')
@@ -30,12 +33,47 @@ st.markdown('''Análise de dados exploratórios diferentes, agrupamento de livro
 mecanismo de recomendação baseado em conteúdo usando campos diferentes da descrição do livro.''')
 st.markdown('---')
 
-# top 10 dos livros
-st.markdown('### Classificação média: 10 melhores livros')
-top_ten = df[df['rating'] > 1000000]
-top_ten.sort_values(by='rating', ascending=False)
-fig = plt.style.use('seaborn-whitegrid')
-data = top_ten.sort_values(by='rating', ascending=False).head(10)
-_=sns.barplot(x="average_rating", y='title', data=data, palette='pastel')
-st.set_option('deprecation.showPyplotGlobalUse', False)
-st.pyplot(fig)
+# Visualizando os dados
+st.markdown('---')
+st.title('Tabelas de Dataframe')
+st.markdown('### Base de dados: Skoob ')
+st.dataframe(df)
+st.markdown('---')
+
+
+
+# Visualização Gráfica
+st.title('Visualização Gráfica')
+# Valores ausentes
+fig = px.bar(x = [0,4,759,759,0,0,2,1,0,0,0,0,0,0,0,0,657,589,0,0],
+            y = ['titulo','autor','isbn_13','isbn_10','ano','paginas','idioma', 'editora',
+            'rating', 'avaliacao', 'resenha', 'abandonos', 'relendo', 'querem_ler', 'lendo', 
+            'leram', 'descricao', 'genero', 'male', 'female'],
+            orientation='h', title=" Valores faltantes ",
+             labels={'x':'Quantidade','y':'Dados'})
+st.plotly_chart(fig, use_container_width=False, sharing='streamlit')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Referencias e adicionando sidebar
+st.sidebar.markdown('Feito por : grupo G4')
+st.sidebar.markdown("- [Github](https://github.com/Taciana3090/Bbooks")
